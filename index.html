@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-18V3VWNQLR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-18V3VWNQLR');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon & Search Index Icon -->
+    <link rel="icon" type="image/webp" href="Agun media logo.webp">
+    <link rel="shortcut icon" href="Agun media logo.webp">
+    <link rel="apple-touch-icon" href="Agun media logo.webp">
+
+    <!-- Primary Meta Tags -->
+    <title>Agun Medias | Premier Digital Marketing & Media Production Agency</title>
+    <meta name="title" content="Agun Medias | Premier Digital Marketing & Media Production Agency">
+    <meta name="description" content="Elevate your brand with Agun Medias. Specialized in high-end digital marketing, social media content creation, cinematic media production, and data-driven advertising solutions.">
+    <link rel="canonical" href="https://agunmedias.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agunmedias.com/">
+    <meta property="og:title" content="Agun Medias | Digital Marketing & Media Production Agency">
+    <meta property="og:description" content="Strategic digital marketing and cinematic media production designed for business growth. Specialized in viral content and advertising.">
+    <meta property="og:image" content="Agun media logo.webp">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Agun Medias",
+      "url": "https://agunmedias.com/",
+      "logo": "https://agunmedias.com/Agun%20media%20logo.webp",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": ["en", "hi"]
+      }
+    }
+    </script>
+
+    <!-- Styles & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+        :root {
+            --ignite-orange: #F26522;
+            --obsidian-black: #050505;
+            --whatsapp-green: #25D366;
+            --container-max: 1400px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--obsidian-black);
+            color: white;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .text-ignite { color: var(--ignite-orange); }
+        .bg-ignite { background-color: var(--ignite-orange); }
+        
+        .nav-glass {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            border-color: var(--ignite-orange);
+            transform: translateY(-10px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 30%, var(--ignite-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 50vw;
+            height: 50vw;
+            background: var(--ignite-orange);
+            filter: blur(180px);
+            opacity: 0.07;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .btn-primary {
+            background: var(--ignite-orange);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            font-weight: 700;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 20px rgba(242, 101, 34, 0.3);
+            filter: brightness(1.1);
+        }
+
+        /* Dropdown Styles */
+        .custom-select-wrapper { position: relative; user-select: none; }
+        .custom-select-trigger {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem;
+            cursor: pointer; font-size: 0.875rem; color: rgba(255, 255, 255, 0.4);
+        }
+        .custom-options {
+            position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+            background: #0f0f0f; border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem; overflow: hidden; display: none; z-index: 100;
+            backdrop-filter: blur(20px); max-height: 300px; overflow-y: auto;
+        }
+        .custom-option {
+            padding: 0.75rem 1.25rem; cursor: pointer; transition: all 0.2s ease;
+            font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);
+        }
+        .custom-option:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
+
+        .logo-img { max-height: 100px; width: auto; transition: transform 0.3s ease; }
+        @media (max-width: 768px) { .logo-img { max-height: 80px; } }
+
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp-green);
+            color: white; width: 60px; height: 60px; border-radius: 50px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.link/4nbyhl" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 nav-glass">
+        <nav class="wrapper py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="Agun media logo.webp" alt="Agun Medias Logo" class="logo-img">
+            </a>
+            <ul class="hidden lg:flex gap-10 text-[11px] font-bold uppercase tracking-widest text-gray-400">
+                <li><a href="index.html" class="text-white">Home</a></li>
+                <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                <li><a href="#packages" class="hover:text-white transition-colors">Packages</a></li>
+                <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+            <a href="#contact" class="btn-primary px-6 rounded-full text-[10px] uppercase tracking-widest text-white">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden">
+            <div class="hero-glow top-0 right-0"></div>
+            <div class="wrapper">
+                <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                    <div class="inline-block px-4 py-1 rounded-full border border-orange-500/20 bg-orange-500/5 mb-6">
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-orange-400">The Power of Content & Strategy</span>
+                    </div>
+                    <h1 class="font-extrabold leading-[1.1] mb-8">
+                        Premier <span class="gradient-text">Digital Marketing & Media Production.</span>
+                    </h1>
+                    <p class="text-gray-400 mb-12 font-light max-w-2xl mx-auto text-lg">
+                        <strong>Agun Medias</strong> is a specialized agency focused on cinematic media production and high-conversion digital marketing. We help ambitious brands tell their stories through viral content and data-backed advertising strategies.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#contact" class="btn-primary px-10 rounded-lg text-xs uppercase tracking-widest">Start Project</a>
+                        <a href="#services" class="inline-flex items-center justify-center px-10 rounded-lg text-xs font-bold tracking-widest border border-white/10 hover:bg-white/5 transition-all uppercase min-h-[48px]">Our Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-[#080808]">
+            <div class="wrapper">
+                <div class="mb-16" data-aos="fade-up">
+                    <h2 class="font-extrabold mb-4">Core Services</h2>
+                    <p class="text-gray-500 max-w-lg">Advanced digital marketing services engineered for visibility and high-impact media production.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 1. Content Creation -->
+                    <article class="glass-card rounded-2xl" data-aos="fade-up">
+                        <i class="fas fa-pen-nib text-3xl text-ignite mb-6"></i>
+                        <h3 class="font-bold mb-4">Content Creation</h3>
+                        <p class="text-gray-500 text-sm mb-6">End-to-end execution: Scripting, Shooting, Editing, and Distribution across all social platforms.</p>
+                        <ul class="text-[10px] uppercase tracking-widest font-bold text-gray-400 space-y-2">
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Viral Scripting</li>
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Multi-Platform Distro</li>
+                        </ul>
+                    </article>
+
+                    <!-- 2. Ads Production -->
+                    <article class="glass-card rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-ad text-3xl text-ignite mb-6"></i>
+                        <h3 class="font-bold mb-4">Ads Production</h3>
+                        <p class="text-gray-500 text-sm mb-6">High-impact advertising assets designed for conversion on Social Media and Theater screens.</p>
+                        <ul class="text-[10px] uppercase tracking-widest font-bold text-gray-400 space-y-2">
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Social Media Ads</li>
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Theater Commercials</li>
+                        </ul>
+                    </article>
+
+                    <!-- 3. Video Editing -->
+                    <article class="glass-card rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-cut text-3xl text-ignite mb-6"></i>
+                        <h3 class="font-bold mb-4">Video Editing</h3>
+                        <p class="text-gray-500 text-sm mb-6">Advanced post-production, color grading, and sound design to turn raw footage into cinematic masterpieces.</p>
+                        <ul class="text-[10px] uppercase tracking-widest font-bold text-gray-400 space-y-2">
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Premium Grading</li>
+                            <li><i class="fas fa-check text-ignite mr-2"></i> SFX & Sound Design</li>
+                        </ul>
+                    </article>
+
+                    <!-- 4. Media Production -->
+                    <article class="glass-card rounded-2xl" data-aos="fade-up">
+                        <i class="fas fa-camera-retro text-3xl text-ignite mb-6"></i>
+                        <h3 class="font-bold mb-4">Media Production</h3>
+                        <p class="text-gray-500 text-sm mb-6">Professional video coverage, high-end editing, and cinematic Commercial Documentaries.</p>
+                        <ul class="text-[10px] uppercase tracking-widest font-bold text-gray-400 space-y-2">
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Video Coverage</li>
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Commercial Docs</li>
+                        </ul>
+                    </article>
+
+                    <!-- 5. End-to-End SMM -->
+                    <article class="glass-card rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-users-cog text-3xl text-ignite mb-6"></i>
+                        <h3 class="font-bold mb-4">End-to-End SMM</h3>
+                        <p class="text-gray-500 text-sm mb-6">Complete Social Media Management services. We handle your entire digital presence so you don't have to.</p>
+                        <ul class="text-[10px] uppercase tracking-widest font-bold text-gray-400 space-y-2">
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Account Growth</li>
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Community Management</li>
+                        </ul>
+                    </article>
+
+                    <!-- 6. Influencer Marketing -->
+                    <article class="glass-card rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-bullhorn text-3xl text-ignite mb-6"></i>
+                        <h3 class="font-bold mb-4">Influencer Marketing</h3>
+                        <p class="text-gray-500 text-sm mb-6">Strategic partnerships and influencer campaigns to amplify your brand authority and reach.</p>
+                        <ul class="text-[10px] uppercase tracking-widest font-bold text-gray-400 space-y-2">
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Talent Scouting</li>
+                            <li><i class="fas fa-check text-ignite mr-2"></i> Campaign Management</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="packages" class="py-24 relative overflow-hidden">
+            <div class="wrapper">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                    <div data-aos="fade-right">
+                        <span class="text-ignite text-[10px] font-black uppercase tracking-[0.3em]">Scalable Solutions</span>
+                        <h2 class="text-5xl font-extrabold mt-4">Partnership <span class="text-white/20">Models</span></h2>
+                    </div>
+                    <p class="text-gray-500 max-w-sm text-sm" data-aos="fade-left">Flexible solutions for startups and established enterprises.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Project Level -->
+                    <div class="glass-card rounded-3xl" data-aos="fade-up">
+                        <div class="mb-8">
+                            <h3 class="text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Execution</h3>
+                            <div class="text-3xl font-extrabold">Project-Level</div>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-10">One-time specialized services for specific production or campaign needs.</p>
+                        <ul class="space-y-4 mb-10 text-sm text-gray-400">
+                            <li class="flex items-center gap-3"><i class="fas fa-bolt text-ignite text-[10px]"></i> Single Ad Production</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-bolt text-ignite text-[10px]"></i> Event Coverage</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-bolt text-ignite text-[10px]"></i> Commercial Documentaries</li>
+                        </ul>
+                        <a href="#contact" class="w-full py-4 border border-white/10 rounded-xl text-[10px] font-black uppercase tracking-widest text-center block hover:bg-white hover:text-black transition-all">Select Plan</a>
+                    </div>
+
+                    <!-- Monthly -->
+                    <div class="glass-card rounded-3xl border-ignite/50 relative" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute top-6 right-6 bg-ignite text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Popular</div>
+                        <div class="mb-8">
+                            <h3 class="text-xs font-black uppercase tracking-widest text-ignite mb-2">Growth</h3>
+                            <div class="text-3xl font-extrabold">Monthly Packages</div>
+                        </div>
+                        <p class="text-gray-200 text-sm mb-10">Full-service integration with yearly billing options for maximum growth.</p>
+                        <ul class="space-y-4 mb-10 text-sm text-gray-200">
+                            <li class="flex items-center gap-3"><i class="fas fa-star text-ignite text-[10px]"></i> Continuous Content Engine</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-star text-ignite text-[10px]"></i> Ad Campaign Management</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-star text-ignite text-[10px]"></i> Priority Yearly Billing</li>
+                        </ul>
+                        <a href="#contact" class="w-full py-4 bg-ignite rounded-xl text-[10px] font-black uppercase tracking-widest text-center block hover:shadow-[0_0_30px_rgba(242,101,34,0.4)] transition-all">Select Plan</a>
+                    </div>
+
+                    <!-- Customized -->
+                    <div class="glass-card rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="mb-8">
+                            <h3 class="text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Elite</h3>
+                            <div class="text-3xl font-extrabold">Customized</div>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-10">Bespoke holistic solutions taking your brand from raw strategy to proven results with a dedicated team.</p>
+                        <ul class="space-y-4 mb-10 text-sm text-gray-400">
+                            <li class="flex items-center gap-3"><i class="fas fa-chess-knight text-ignite text-[10px]"></i> Roadmap Strategy</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-chess-knight text-ignite text-[10px]"></i> Dedicated Account Team</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-chess-knight text-ignite text-[10px]"></i> Scaled Performance Results</li>
+                        </ul>
+                        <a href="#contact" class="w-full py-4 border border-white/10 rounded-xl text-[10px] font-black uppercase tracking-widest text-center block hover:bg-white hover:text-black transition-all">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 border-t border-white/5">
+            <div class="wrapper grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-ignite text-[10px] font-black uppercase tracking-[0.3em] mb-6 block">Inquiry</span>
+                    <h2 class="text-5xl font-extrabold leading-tight mb-8">Ready to start your <span class="gradient-text">Production?</span></h2>
+                    <p class="text-gray-400 mb-12 max-w-md">Discuss your <strong>digital marketing & media production</strong> needs with our expert consultants today.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-6 group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-ignite transition-all">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase font-black text-gray-600 mb-1">Fast Response</p>
+                                <a href="https://wa.link/4nbyhl" class="font-bold hover:text-ignite transition-colors">WhatsApp Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl" data-aos="zoom-in">
+                    <form action="https://formspree.io/f/mnnjlqlv" method="POST" class="space-y-6" id="contactForm">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-[10px] uppercase font-black text-gray-500 mb-3 block">Name</label>
+                                <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:border-ignite outline-none transition-all text-sm">
+                            </div>
+                            <div>
+                                <label class="text-[10px] uppercase font-black text-gray-500 mb-3 block">WhatsApp Number</label>
+                                <input type="tel" name="whatsapp" required placeholder="+91..." class="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:border-ignite outline-none transition-all text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-[10px] uppercase font-black text-gray-500 mb-3 block">Interested Service or Model</label>
+                            <div class="custom-select-wrapper">
+                                <div class="custom-select-trigger" id="interestTrigger">
+                                    <span id="interestValue">Select a Service or Package</span>
+                                    <i class="fas fa-chevron-down text-[10px] text-ignite"></i>
+                                </div>
+                                <div class="custom-options" id="interestOptions">
+                                    <div class="custom-option" data-value="Project-Level Package">Project-Level Package</div>
+                                    <div class="custom-option" data-value="Monthly Growth Package">Monthly Growth Package</div>
+                                    <div class="custom-option" data-value="Customized Elite Package">Customized Elite Package</div>
+                                    <div class="custom-option" data-value="Content Creation">Content Creation</div>
+                                    <div class="custom-option" data-value="Ads Production">Ads Production</div>
+                                    <div class="custom-option" data-value="Video Editing">Video Editing</div>
+                                    <div class="custom-option" data-value="Media Production">Media Production</div>
+                                    <div class="custom-option" data-value="End-to-End SMM">End-to-End SMM</div>
+                                    <div class="custom-option" data-value="Influencer Marketing">Influencer Marketing</div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="interest" id="hiddenInterestInput" required>
+                        </div>
+                        <button type="submit" id="submitBtn" class="btn-primary w-full rounded-xl py-6 text-[11px] uppercase tracking-[0.4em]">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SEO Friendly Footer -->
+    <footer class="py-24 bg-[#080808] border-t border-white/5 relative">
+        <div class="wrapper">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+                <!-- Branding Column -->
+                <div class="space-y-8">
+                    <a href="index.html" class="inline-block">
+                        <img src="Agun media logo.webp" alt="Agun Medias Logo" class="logo-img">
+                    </a>
+                    <p class="text-gray-500 text-sm max-w-xs leading-relaxed">
+                        Agun Medias is a premier agency specialized in cinematic <strong>media production</strong> and data-driven <strong>digital marketing</strong>.
+                    </p>
+                </div>
+
+                <!-- Services Column -->
+                <div class="lg:pl-10">
+                    <h4 class="text-[10px] uppercase font-black tracking-widest text-ignite mb-8">Our Services</h4>
+                    <ul class="space-y-4 text-xs font-bold text-gray-500 tracking-widest">
+                        <li><a href="Media Production.html" class="hover:text-white transition-colors">Media Production</a></li>
+                        <li><a href="Social Media Marketing.html" class="hover:text-white transition-colors">Social Media Marketing</a></li>
+                        <li><a href="Video Content Creation.html" class="hover:text-white transition-colors">Video Content Creation</a></li>
+                        <li><a href="Influencer Campaigns.html" class="hover:text-white transition-colors">Influencer Campaigns</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div>
+                    <h4 class="text-[10px] uppercase font-black tracking-widest text-white mb-8">Resources</h4>
+                    <ul class="space-y-4 text-xs font-bold text-gray-500 tracking-widest">
+                        <li><a href="#packages" class="hover:text-white transition-colors">Pricing Models</a></li>
+                        <li><a href="Support.html" class="hover:text-white transition-colors">Support</a></li>
+                        <li><a href="https://wa.link/4nbyhl" target="_blank" class="hover:text-white transition-colors">WhatsApp Consult</a></li>
+                        <li><a href="sitemap.html" class="hover:text-white transition-colors">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Column -->
+                <div>
+                    <h4 class="text-[10px] uppercase font-black tracking-widest text-white mb-8">Company</h4>
+                    <ul class="space-y-4 text-xs font-bold text-gray-500 tracking-widest">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="Privacy_Policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="Terms_&_Conditions.html" class="hover:text-white transition-colors">Terms & Conditions</a></li>
+                        <li><a href="404.html" class="hover:text-white transition-colors">404 Error</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-gray-600 text-[10px] uppercase tracking-widest font-black text-center md:text-left">
+                    © 2026 Agun Medias. All Rights Reserved. 
+                    <span class="mx-2 hidden md:inline">|</span> 
+                    <a href="Privacy_Policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-[8px] uppercase tracking-widest font-black text-gray-700">Digital Marketing Agency in India</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+
+        // Select Menu logic
+        const trigger = document.getElementById('interestTrigger');
+        const optionsContainer = document.getElementById('interestOptions');
+        const hiddenInput = document.getElementById('hiddenInterestInput');
+        const displayValue = document.getElementById('interestValue');
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
+            trigger.style.borderColor = optionsContainer.style.display === 'block' ? '#F26522' : 'rgba(255, 255, 255, 0.1)';
+        });
+
+        document.querySelectorAll('.custom-option').forEach(opt => {
+            opt.addEventListener('click', function() {
+                const val = this.getAttribute('data-value');
+                hiddenInput.value = val;
+                displayValue.innerText = val;
+                displayValue.style.color = '#fff';
+                optionsContainer.style.display = 'none';
+                trigger.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+
+        window.addEventListener('click', () => {
+            optionsContainer.style.display = 'none';
+            trigger.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+        });
+
+        // Form Submission Logic
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const data = new FormData(form);
+            const originalText = btn.innerText;
+            const interestInput = document.getElementById('hiddenInterestInput');
+
+            if (!interestInput.value) {
+                document.getElementById('interestTrigger').style.borderColor = '#ef4444';
+                return;
+            }
+
+            btn.innerText = "SENDING...";
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    btn.innerText = "REQUEST SENT";
+                    btn.style.background = "#22c55e";
+                    form.reset();
+                    displayValue.innerText = "Select a Service or Package";
+                    displayValue.style.color = 'rgba(255, 255, 255, 0.4)';
+                    hiddenInput.value = "";
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.background = "#F26522";
+                        btn.disabled = false;
+                    }, 5000);
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                btn.innerText = "ERROR TRY AGAIN";
+                btn.style.background = "#ef4444";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = "#F26522";
+                    btn.disabled = false;
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
