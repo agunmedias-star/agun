@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head> 
+
+
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1410917337392094');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1410917337392094&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+
+
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-18V3VWNQLR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-18V3VWNQLR');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Our Work | Agun Medias</title>
+    <link rel="icon" type="image/webp" href="Agun media logo.webp">
+    
+    <!-- Styles & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+        :root {
+            --ignite-orange: #F26522;
+            --obsidian-black: #050505;
+            --whatsapp-green: #25D366;
+            --bolt-blue: #00d2ff;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--obsidian-black);
+            color: white;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            cursor: none; /* Hide default cursor */
+        }
+
+        /* Lightning Cursor Styling */
+        #lightning-cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            width: 24px;
+            height: 24px;
+            color: var(--ignite-orange);
+            filter: drop-shadow(0 0 5px var(--ignite-orange));
+            transform: translate(-50%, -50%);
+            transition: transform 0.05s linear, opacity 0.5s ease;
+            opacity: 1;
+        }
+
+        /* Mild Tonned Thunder Spark Effect */
+        .spark {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            background: var(--ignite-orange);
+            border-radius: 50%;
+            box-shadow: 0 0 15px 2px var(--ignite-orange);
+            opacity: 0.6;
+            animation: thunderStrike 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @keyframes thunderStrike {
+            0% { transform: scale(0.5); opacity: 0.8; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        .lightning-trail {
+            position: fixed;
+            width: 1.5px;
+            height: 20px;
+            background: var(--ignite-orange);
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.4;
+            animation: trailFade 0.4s ease-out forwards;
+        }
+
+        @keyframes trailFade {
+            to { transform: scaleY(0); opacity: 0; }
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.7), rgba(10, 10, 10, 0.8));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 100vw; height: 100vw;
+            background: radial-gradient(circle, var(--ignite-orange) 0%, transparent 70%);
+            filter: blur(100px); opacity: 0.12; z-index: -1; top: -50vw; left: 0;
+        }
+
+        .btn-primary {
+            background: var(--ignite-orange);
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 1.25rem 2.5rem;
+            border-radius: 1rem;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 10px 40px rgba(242, 101, 34, 0.25);
+            font-size: 0.75rem;
+            border: none;
+            cursor: none;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(242, 101, 34, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* YouTube Container UI */
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+            border-radius: 1.25rem;
+            overflow: hidden;
+        }
+
+        .youtube-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Modal / Form Styles */
+        #claim-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        #claim-modal.active {
+            display: flex;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            color: white;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: var(--ignite-orange);
+        }
+
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: var(--whatsapp-green); color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 1000; animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 40%, var(--ignite-orange) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .reveal-title {
+            position: relative;
+            background: linear-gradient(to right, #fff 20%, var(--ignite-orange) 40%, var(--ignite-orange) 60%, #fff 80%);
+            background-size: 200% auto;
+            color: #000;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .benefit-circle {
+            width: 32px; height: 32px; border-radius: 50%;
+            background: rgba(242, 101, 34, 0.1); border: 1px solid rgba(242, 101, 34, 0.3);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: var(--ignite-orange); flex-shrink: 0;
+        }
+
+        .package-tag {
+            font-size: 9px; font-weight: 800; letter-spacing: 0.1em;
+            padding: 4px 10px; border-radius: 6px; text-transform: uppercase;
+            display: inline-block; margin-top: 10px;
+        }
+
+        /* FAQ Styling */
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .faq-item:last-child { border: none; }
+        
+        .faq-trigger {
+            width: 100%; text-align: left; padding: 1.5rem 0;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 600; font-size: 0.9rem; transition: color 0.3s;
+        }
+        
+        .faq-content {
+            max-height: 0; overflow: hidden; transition: all 0.4s ease;
+            font-size: 0.8rem; color: #a1a1aa; line-height: 1.6;
+        }
+        
+        .faq-item.active .faq-content { max-height: 200px; padding-bottom: 1.5rem; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); color: var(--ignite-orange); }
+
+        /* Cinematic Roadmap Styles */
+        .roadmap-container {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        .roadmap-line-bg {
+            position: absolute;
+            left: 11px; top: 0; bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .roadmap-line-active {
+            position: absolute;
+            left: 11px; top: 0; 
+            width: 2px;
+            height: 0%;
+            background: linear-gradient(to bottom, var(--ignite-orange), transparent);
+            box-shadow: 0 0 15px var(--ignite-orange);
+            transition: height 1.5s ease-out;
+        }
+        .roadmap-step {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        .roadmap-step:last-child { margin-bottom: 0; }
+
+        .roadmap-dot {
+            position: absolute;
+            left: -2.5rem; top: 0;
+            width: 24px; height: 24px;
+            background: var(--obsidian-black);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 10;
+            transition: all 0.5s ease;
+        }
+        
+        .roadmap-step[data-aos].aos-animate .roadmap-dot {
+            border-color: var(--ignite-orange);
+            box-shadow: 0 0 20px rgba(242, 101, 34, 0.4);
+        }
+        
+        .roadmap-dot::after {
+            content: '';
+            width: 8px; height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+
+        .roadmap-step[data-aos].aos-animate .roadmap-dot::after {
+            background: var(--ignite-orange);
+            transform: scale(1.2);
+        }
+
+        .step-tag {
+            font-size: 10px;
+            font-weight: 900;
+            color: var(--ignite-orange);
+            letter-spacing: 0.25em;
+            margin-bottom: 8px;
+            display: block;
+            opacity: 0.8;
+        }
+
+        .roadmap-card {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .roadmap-card:hover {
+            border-color: rgba(242, 101, 34, 0.3);
+            background: rgba(242, 101, 34, 0.03);
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Lightning Cursor Markup -->
+    <div id="lightning-cursor">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L3 14H12V22L22 10H13V2Z" />
+        </svg>
+    </div>
+
+    <!-- Claim Modal Form (Netlify Integrated) -->
+    <div id="claim-modal">
+        <div class="glass-card w-full max-w-sm p-8" data-aos="zoom-in">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold gradient-text">Claim Exclusivity</h3>
+                <button onclick="toggleModal()" class="text-gray-500 hover:text-white transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <p class="text-xs text-gray-400 mb-6 leading-relaxed">
+                Enter your details to lock your school's territory. We will contact you to verify your location.
+            </p>
+
+            <form id="leadForm" name="claim-exclusivity" method="POST" data-netlify="true">
+                <!-- Netlify specific hidden field -->
+                <input type="hidden" name="form-name" value="claim-exclusivity" />
+
+                <label class="text-[10px] uppercase tracking-widest font-bold text-gray-500 ml-1 mb-2 block">School Name</label>
+                <input type="text" name="schoolName" id="schoolName" required placeholder="raja raja cholan" class="form-input">
+
+                <label class="text-[10px] uppercase tracking-widest font-bold text-gray-500 ml-1 mb-2 block">Location</label>
+                <input type="text" name="location" id="location" required placeholder="konganapuram , Salem" class="form-input">
+
+                <label class="text-[10px] uppercase tracking-widest font-bold text-gray-500 ml-1 mb-2 block">Contact Number</label>
+                <input type="tel" name="contact" id="contact" required placeholder="+91 00000 00000" class="form-input">
+
+                <button type="submit" id="submitBtn" class="btn-primary w-full mt-4 flex items-center justify-center gap-2">
+                    <span id="btnText">Complete</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="hero-glow"></div>
+
+    <main class="flex-grow w-full max-w-lg mx-auto px-6 py-12 pb-32 z-10 flex flex-col items-center">
+        
+        <!-- Hero Content -->
+        <div class="text-center w-full mb-10" data-aos="fade-up">
+            <div class="inline-block px-4 py-1.5 rounded-full border border-orange-500/20 bg-orange-500/5 mb-6">
+                <span class="text-[9px] font-black uppercase tracking-[0.3em] text-orange-400">Exclusive Presentation</span>
+            </div>
+            
+            <h1 class="text-4xl font-extrabold mb-6 leading-tight">
+                Hi <span class="gradient-text">Principals.</span>
+            </h1>
+            
+            <p class="text-gray-400 text-sm font-light mb-10">
+                Give us <span class="text-white font-bold underline decoration-orange-500 underline-offset-4">1 minute</span> to show you how to make your presence <span class="text-white italic">bigger & better.</span>
+            </p>
+
+            <div class="glass-card p-2 shadow-2xl">
+                <!-- PRIMARY YOUTUBE EMBED -->
+                <div class="youtube-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yzOxHlQXTOw?si=WuR_dT947yaeRlLq&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategy Session -->
+        <section class="w-full mt-12">
+            <h2 class="text-2xl font-bold mb-8 text-center leading-tight reveal-title" data-aos="fade-up">
+                Becoming the #1 School <br>in Your Location
+            </h2>
+
+            <div class="space-y-4 mb-12">
+                <div class="glass-card p-5 border-l-4 border-l-orange-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex gap-4">
+                        <div class="benefit-circle"><i class="fas fa-bullhorn"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm mb-1 uppercase tracking-wider">Strategic Visibility</h4>
+                            <p class="text-xs text-gray-400">We bypass the noise by putting your brand directly in front of parents through professional ad campaigns.</p>
+                            <span class="package-tag bg-orange-500/10 text-orange-400">Professional Adv. Pack</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 border-l-4 border-l-orange-500 bg-orange-500/5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex gap-4">
+                        <div class="benefit-circle"><i class="fas fa-camera-retro"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm mb-1 uppercase tracking-wider text-ignite">Aesthetic Authority</h4>
+                            <p class="text-xs text-gray-400">Cinematic reels and premium photography make your school look elite—leaving outdated competitors in the past.</p>
+                            <span class="package-tag bg-white/5 text-white">Social Media Pack</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 border-l-4 border-l-orange-500" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex gap-4">
+                        <div class="benefit-circle"><i class="fas fa-bullseye"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm mb-1 uppercase tracking-wider">Precision Targeting</h4>
+                            <p class="text-xs text-gray-400">Ads targeted specifically to parents within a 5-10km radius, ensuring every rupee spent reaches a potential admission.</p>
+                            <span class="package-tag bg-orange-500/10 text-orange-400">Professional Adv. Pack</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center w-full z-20 mb-20" data-aos="zoom-in">
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-4">Limited availability per region</p>
+                <button onclick="toggleModal()" class="btn-primary w-full inline-flex items-center justify-center gap-3">
+                    <i class="fas fa-map-marker-alt"></i> Claim Your Location Now
+                </button>
+            </div>
+        </section>
+
+        <!-- CINEMATIC ROADMAP -->
+        <section class="w-full mb-24" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-px bg-white/10 flex-1"></div>
+                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500">Success Roadmap</span>
+                <div class="h-px bg-white/10 flex-1"></div>
+            </div>
+
+            <div class="roadmap-container">
+                <div class="roadmap-line-bg"></div>
+                <div class="roadmap-line-active" id="roadmapProgress"></div>
+                
+                <div class="roadmap-step" data-aos="fade-left" data-aos-delay="100">
+                    <div class="roadmap-dot"></div>
+                    <div class="glass-card roadmap-card p-6 ml-4">
+                        <span class="step-tag">PHASE 01</span>
+                        <h4 class="text-sm font-bold mb-2 uppercase tracking-tight flex items-center gap-2">
+                            <i class="fas fa-fingerprint text-ignite"></i> Radius Exclusivity
+                        </h4>
+                        <p class="text-[11px] text-gray-400 leading-relaxed">
+                            We audit your brand and officially lock your school’s 10km radius. <span class="text-white font-semibold">We don't take your competitors</span>—once you're in, the area is yours.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="roadmap-step" data-aos="fade-left" data-aos-delay="200">
+                    <div class="roadmap-dot"></div>
+                    <div class="glass-card roadmap-card p-6 ml-4">
+                        <span class="step-tag">PHASE 02</span>
+                        <h4 class="text-sm font-bold mb-2 uppercase tracking-tight flex items-center gap-2">
+                            <i class="fas fa-layer-group text-ignite"></i> Content Production
+                        </h4>
+                        <p class="text-[11px] text-gray-400 leading-relaxed">
+                            Our production crew captures cinematic 4K reels and high-authority photography that makes your school feel like the <span class="text-white font-semibold">premium choice</span> in the city.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="roadmap-step" data-aos="fade-left" data-aos-delay="300">
+                    <div class="roadmap-dot"></div>
+                    <div class="glass-card roadmap-card p-6 ml-4">
+                        <span class="step-tag">PHASE 03</span>
+                        <h4 class="text-sm font-bold mb-2 uppercase tracking-tight flex items-center gap-2">
+                            <i class="fas fa-broadcast-tower text-ignite"></i> Hyper-Targeting
+                        </h4>
+                        <p class="text-[11px] text-gray-400 leading-relaxed">
+                            We launch high-performing ad sets across Meta targeting only parents. We don't just "show" ads; we <span class="text-white font-semibold">intercept the decision-making process</span>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="roadmap-step" data-aos="fade-left" data-aos-delay="400">
+                    <div class="roadmap-dot"></div>
+                    <div class="glass-card roadmap-card p-6 ml-4 border-2 border-orange-500/20 bg-orange-500/10">
+                        <span class="step-tag">PHASE 04</span>
+                        <h4 class="text-sm font-bold mb-2 uppercase tracking-tight flex items-center gap-2">
+                            <i class="fas fa-chart-line text-ignite"></i> Dominance & Scale
+                        </h4>
+                        <p class="text-[11px] text-gray-400 leading-relaxed">
+                            Witness a surge in qualified inquiries. We refine your funnel monthly to ensure your school remains the <span class="text-white font-semibold">undisputed #1 authority</span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="w-full" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="h-px bg-white/10 flex-1"></div>
+                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500">Common Queries</span>
+                <div class="h-px bg-white/10 flex-1"></div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>How soon will we see results?</span>
+                        <i class="fas fa-chevron-down faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-content">
+                        For the Advertisement Package, you’ll start seeing increased inquiries within 48-72 hours of the campaign launch. Social Media growth is a steady build that creates long-term brand value.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>Do we need to provide the content?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        No. Our Social Media Package includes a professional production team that visits your school to capture cinematic footage, interviews, and campus highlights.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>Why not just use a standard SEO agency?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        Generic agencies don't understand the school admission cycle. We focus on "Visual Authority" and "Location Targeting" which converts parents much faster than waiting for search rankings.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>Can we choose only one package?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        Yes, you can start with either. However, schools that combine both see 3x higher conversion because the Ads bring the parents, and the Social Media Presence "closes the deal."
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>What is the "Location Locking" policy?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        To ensure maximum ROI for our clients, we only work with a limited number of schools in a specific radius. This ensures you are always the dominant brand in your local area.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating WhatsApp Link -->
+    <a href="https://wa.link/qmdx8s" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="py-10 border-t border-white/5 text-center">
+        <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-gray-600">© 2026 Agun Medias — Quality over Everything</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Lightning Cursor Logic
+        const bolt = document.getElementById('lightning-cursor');
+        let vanishTimer;
+        
+        function showAndResetCursor(e) {
+            clearTimeout(vanishTimer);
+            bolt.style.opacity = '1';
+            const x = e.clientX || (e.touches ? e.touches[0].clientX : 0);
+            const y = e.clientY || (e.touches ? e.touches[0].clientY : 0);
+            bolt.style.left = x + 'px';
+            bolt.style.top = y + 'px';
+            if (Math.random() > 0.9) createTrail(x, y);
+        }
+
+        document.addEventListener('mousemove', showAndResetCursor);
+        document.addEventListener('touchstart', showAndResetCursor);
+        document.addEventListener('touchmove', showAndResetCursor);
+
+        document.addEventListener('mousedown', (e) => {
+            bolt.style.transform = 'translate(-50%, -50%) scale(0.8) rotate(-15deg)';
+            createSpark(e.clientX, e.clientY);
+        });
+
+        document.addEventListener('mouseup', () => {
+            bolt.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
+        });
+
+        function createSpark(x, y) {
+            const spark = document.createElement('div');
+            spark.className = 'spark';
+            spark.style.left = x + 'px';
+            spark.style.top = y + 'px';
+            spark.style.width = '12px';
+            spark.style.height = '12px';
+            document.body.appendChild(spark);
+            setTimeout(() => spark.remove(), 500);
+            for(let i=0; i<6; i++) createTrail(x, y, true);
+        }
+
+        function createTrail(x, y, isClick = false) {
+            const trail = document.createElement('div');
+            trail.className = 'lightning-trail';
+            trail.style.left = x + 'px';
+            trail.style.top = y + 'px';
+            const angle = isClick ? Math.random() * 360 : Math.random() * 20 - 10;
+            const length = isClick ? Math.random() * 30 + 10 : 12;
+            trail.style.height = length + 'px';
+            trail.style.transform = `rotate(${angle}deg)`;
+            document.body.appendChild(trail);
+            setTimeout(() => trail.remove(), 400);
+        }
+
+        // Modal Logic
+        function toggleModal() {
+            document.getElementById('claim-modal').classList.toggle('active');
+        }
+
+        // Netlify AJAX Submission + WhatsApp Redirect
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const myForm = e.target;
+            const formData = new FormData(myForm);
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+
+            // Visual feedback
+            submitBtn.disabled = true;
+            btnText.textContent = "Processing...";
+
+            const name = document.getElementById('schoolName').value;
+            const loc = document.getElementById('location').value;
+            const phone = document.getElementById('contact').value;
+
+            // 1. Submit to Netlify
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString(),
+            })
+            .then(() => {
+                // 2. Redirect to WhatsApp (using updated link)
+                const message = `Hello Agun Medias! I want to claim our location exclusivity.%0A%0A*School Name:* ${name}%0A*Location:* ${loc}%0A*Contact:* ${phone}`;
+                const whatsappUrl = `https://wa.link/qmdx8s?text=${message}`;
+                
+                window.open(whatsappUrl, '_blank');
+                toggleModal();
+                
+                // Reset form
+                myForm.reset();
+                submitBtn.disabled = false;
+                btnText.textContent = "Complete";
+            })
+            .catch((error) => {
+                console.error("Netlify Submission Error:", error);
+                // Still redirect even if Netlify fails
+                const message = `Hello Agun Medias! I want to claim our location exclusivity.%0A%0A*School Name:* ${name}%0A*Location:* ${loc}%0A*Contact:* ${phone}`;
+                window.open(`https://wa.link/qmdx8s?text=${message}`, '_blank');
+                toggleModal();
+                submitBtn.disabled = false;
+                btnText.textContent = "Complete";
+            });
+        });
+
+        // Scroll Progress for Roadmap Line
+        window.addEventListener('scroll', () => {
+            const container = document.querySelector('.roadmap-container');
+            if (container) {
+                const rect = container.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    const progress = Math.min(100, Math.max(0, ((windowHeight - rect.top) / (rect.height + windowHeight)) * 150));
+                    document.getElementById('roadmapProgress').style.height = progress + '%';
+                }
+            }
+        });
+
+        // Simple FAQ Toggle Logic
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const parent = trigger.parentElement;
+                const isActive = parent.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+                if (!isActive) parent.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
