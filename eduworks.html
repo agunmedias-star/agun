@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educational Induction Portfolio | Agun Medias</title>
+    <title>Educational Media Production | Agun Medias</title>
     
     <!-- Branding Consistency -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -28,95 +28,99 @@
             overflow-x: hidden;
         }
 
+        /* Dynamic Background Elements */
+        .bg-noise {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: 1;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glow-sphere {
+            position: fixed;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(242, 101, 34, 0.1) 0%, transparent 70%);
+            top: -20vw;
+            right: -20vw;
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(80px);
+            animation: pulse-glow 10s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            100% { transform: translate(-10%, 10%) scale(1.1); opacity: 0.7; }
+        }
+
         .nav-glass {
-            background: rgba(5, 5, 5, 0.85);
+            background: rgba(5, 5, 5, 0.8);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .wrapper {
-            width: 92%;
+            width: 90%;
             max-width: var(--container-max);
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
-        /* PREMIUM CARD UPGRADES */
+        /* Hero CTA Pulse */
+        .cta-pulse {
+            box-shadow: 0 0 0 0 rgba(242, 101, 34, 0.4);
+            animation: pulse-orange 2s infinite;
+        }
+
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 0 0 0 rgba(242, 101, 34, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(242, 101, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(242, 101, 34, 0); }
+        }
+
+        /* Premium Portfolio Cards */
         .portfolio-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 2rem;
+            border-radius: 1.5rem;
             overflow: hidden;
-            transition: transform 0.6s var(--premium-ease), border-color 0.4s ease, box-shadow 0.6s var(--premium-ease);
+            transition: all 0.7s var(--premium-ease);
             position: relative;
             cursor: pointer;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            transform-style: preserve-3d;
-            perspective: 1000px;
         }
 
-        /* Mouse Glow Effect */
-        .card-glow {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle 200px at var(--x) var(--y), rgba(242, 101, 34, 0.15), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
-
-        .portfolio-card:hover .card-glow {
-            opacity: 1;
-        }
+        @media (min-width: 768px) { .portfolio-card { border-radius: 2.5rem; } }
 
         .portfolio-card:hover {
-            border-color: rgba(242, 101, 34, 0.3);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.7), 0 18px 36px -18px rgba(242, 101, 34, 0.2);
+            border-color: rgba(242, 101, 34, 0.5);
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
         }
 
-        .video-thumbnail-landscape, .video-thumbnail-vertical {
-            background: #0a0a0a;
-            position: relative;
-            overflow: hidden;
-            border-radius: 1.5rem;
-            margin: 0.75rem;
-        }
-
-        .video-thumbnail-landscape { aspect-ratio: 16 / 9; }
-        .video-thumbnail-vertical { aspect-ratio: 9 / 16; }
+        .video-thumbnail-landscape { aspect-ratio: 16 / 9; position: relative; overflow: hidden; }
+        .video-thumbnail-vertical { aspect-ratio: 9 / 16; position: relative; overflow: hidden; }
 
         .thumbnail-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.5s var(--premium-ease);
-            filter: saturate(0.9) brightness(0.9);
+            transition: transform 1.2s var(--premium-ease);
+            filter: brightness(0.7);
         }
 
-        .portfolio-card:hover .thumbnail-img {
-            transform: scale(1.1) rotate(1deg);
-            filter: saturate(1.1) brightness(1.05);
-        }
-
-        .play-overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.5s var(--premium-ease);
-        }
-
-        .portfolio-card:hover .play-overlay {
-            opacity: 1;
-        }
+        .portfolio-card:hover .thumbnail-img { transform: scale(1.1); filter: brightness(1); }
 
         .play-btn {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: white;
             border-radius: 50%;
             display: flex;
@@ -124,343 +128,261 @@
             justify-content: center;
             color: black;
             font-size: 1.2rem;
-            transition: all 0.5s var(--premium-ease);
-            transform: scale(0.8) translateZ(30px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
-        .portfolio-card:hover .play-btn {
-            transform: scale(1) translateZ(50px);
-            background: var(--ignite-orange);
-            color: white;
-        }
+        .portfolio-card:hover .play-btn { background: var(--ignite-orange); color: white; transform: scale(1.1); }
 
         .gradient-text {
-            background: linear-gradient(135deg, #fff 40%, var(--ignite-orange) 100%);
+            background: linear-gradient(to right, #fff 30%, var(--ignite-orange) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .tag {
             font-size: 9px;
-            background: rgba(255, 255, 255, 0.04);
-            padding: 6px 14px;
-            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 4px;
             color: #aaa;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 700;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .portfolio-card:hover .tag {
-            border-color: rgba(242, 101, 34, 0.4);
-            color: white;
+        /* Services Grid */
+        .service-item {
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            transition: all 0.4s;
+        }
+        .service-item:hover {
+            border-left-color: var(--ignite-orange);
+            background: linear-gradient(to right, rgba(242, 101, 34, 0.05), transparent);
         }
 
-        /* Modal Enhancements */
+        /* Modal */
         #videoModal {
             display: none;
             position: fixed;
             inset: 0;
-            z-index: 100;
-            background: rgba(0,0,0,0.96);
+            z-index: 1000;
+            background: rgba(0,0,0,0.95);
             align-items: center;
             justify-content: center;
-            padding: 20px;
             backdrop-filter: blur(15px);
         }
-
-        .modal-inner {
-            background: #000;
-            border-radius: 2rem;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 120px rgba(242, 101, 34, 0.15);
-            animation: modalPop 0.5s var(--premium-ease);
-        }
-
-        @keyframes modalPop {
-            from { transform: scale(0.9) translateY(30px); opacity: 0; }
-            to { transform: scale(1) translateY(0); opacity: 1; }
-        }
-
-        .modal-content-vertical { max-width: 420px; aspect-ratio: 9/16; height: 85vh; border: 1px solid rgba(255,255,255,0.1); }
-        .modal-content-landscape { max-width: 1100px; aspect-ratio: 16/9; width: 95%; border: 1px solid rgba(255,255,255,0.1); }
-
-        #videoModal iframe { width: 100%; height: 100%; }
+        .modal-inner { background: #000; border-radius: 2rem; overflow: hidden; width: 90%; max-width: 1100px; aspect-ratio: 16/9; }
+        .modal-inner.vertical { max-width: 400px; aspect-ratio: 9/16; height: 80vh; }
+        iframe { width: 100%; height: 100%; }
 
         .close-modal {
             position: absolute;
-            top: 30px;
-            right: 40px;
-            color: white;
-            font-size: 44px;
+            top: 20px;
+            right: 20px;
             cursor: pointer;
-            z-index: 110;
-            opacity: 0.4;
-            transition: all 0.3s;
-        }
-        .close-modal:hover { opacity: 1; transform: rotate(90deg); }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            letter-spacing: -0.03em;
+            color: white;
+            font-size: 2rem;
         }
     </style>
 </head>
 <body>
+    <div class="bg-noise"></div>
+    <div class="glow-sphere"></div>
 
     <div id="videoModal">
         <span class="close-modal" onclick="closeVideo()">&times;</span>
         <div id="modalWrapper" class="modal-inner">
-            <iframe id="modalIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe id="modalIframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- Header -->
-    <header class="fixed w-full z-50 nav-glass">
-        <nav class="wrapper py-5 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="Agun media logo.webp" alt="Agun Medias Logo" class="h-10 md:h-12">
+    <!-- Navigation -->
+    <header class="fixed w-full z-[100] nav-glass">
+        <nav class="wrapper py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="Agun media logo.webp" alt="Logo" class="h-10 md:h-12">
             </a>
-            <ul class="hidden lg:flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
-                <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
-                <li><a href="index.html#services" class="hover:text-white transition-colors">Services</a></li>
-                <li><a href="#" class="text-white">Portfolio</a></li>
-                <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact</a></li>
-            </ul>
-            <a href="index.html#contact" class="hidden md:block bg-white text-black text-[10px] font-black px-7 py-3 rounded-full hover:bg-orange-500 hover:text-white transition-all tracking-widest">GET IN TOUCH</a>
+            <a href="#contact" class="bg-white text-black text-[10px] font-black px-6 py-3 rounded-full hover:bg-orange-500 hover:text-white transition-all tracking-widest uppercase cta-pulse">
+                START A PROJECT
+            </a>
         </nav>
     </header>
 
-    <main class="pt-48 pb-32">
-        <section class="wrapper mb-24" data-aos="fade-up">
-            <span class="text-orange-500 text-[10px] font-black uppercase tracking-[0.5em] mb-6 block">Educational Media Production</span>
-            <h1 class="text-6xl md:text-9xl font-extrabold mb-10 tracking-tighter leading-[0.85]">
-                Elevating <br><span class="gradient-text">Academic Brands.</span>
-            </h1>
-        </section>
-
-        <!-- Section 01: Institutional Showcases -->
-        <section class="wrapper mb-32">
-            <div class="section-header mb-12" data-aos="fade-right">
-                <div>
-                    <span class="text-xs font-bold text-gray-500 uppercase tracking-[0.3em] block mb-2">01 — Featured Productions</span>
-                    <h2 class="font-extrabold">Institutional Showcases</h2>
+    <main class="relative z-10">
+        <!-- HERO SECTION: Primary Value Proposition -->
+        <section class="wrapper pt-48 md:pt-64 pb-20 md:pb-40">
+            <div class="max-w-5xl" data-aos="fade-up">
+                <span class="text-orange-500 text-[10px] md:text-xs font-black uppercase tracking-[0.5em] mb-8 block">Content That Converts Students</span>
+                <h1 class="text-6xl md:text-9xl font-extrabold mb-10 tracking-tighter leading-[0.9]">
+                    Stop Being a <br><span class="gradient-text">Boring School.</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-2xl max-w-2xl font-medium mb-12 leading-relaxed">
+                    We create high-impact visual media for educational institutions that captures attention, builds trust, and drives admissions.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#portfolio" class="bg-orange-500 text-white px-10 py-5 rounded-full text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform text-center">View Case Studies</a>
+                    <a href="#trust" class="border border-white/20 text-white px-10 py-5 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white/10 transition-all text-center">Trusted by 12+ Brands</a>
                 </div>
             </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <!-- IIIT Agartala -->
-                <article class="portfolio-card premium-tilt" data-aos="fade-up" onclick="openVideo('uYNthmcD9N4', 'landscape')">
-                    <div class="card-glow"></div>
+        </section>
+
+        <!-- TRUST SECTION: Social Proof -->
+        <section id="trust" class="border-y border-white/5 bg-white/[0.02] py-12">
+            <div class="wrapper">
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em] text-center mb-10">Trusted by Premier Educational Brands</p>
+                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-30 grayscale hover:grayscale-0 transition-all">
+                    <span class="text-2xl font-black">IIIT AGARTALA</span>
+                    <span class="text-2xl font-black">AGARAM</span>
+                    <span class="text-2xl font-black">NEET ACADEMY</span>
+                    <span class="text-2xl font-black">JNV</span>
+                    <span class="text-2xl font-black">KV</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES: The "How We Help" Section -->
+        <section class="wrapper py-24 md:py-48">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+                <div data-aos="fade-right">
+                    <span class="text-orange-500 text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Our Expertise</span>
+                    <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-8 leading-tight">We Build Educational <br>Digital Identities.</h2>
+                    <p class="text-gray-500 text-lg mb-10 leading-relaxed">From campus walkthroughs that feel like movies to social media strategies that engage Gen-Z, we handle the entire media stack for your institution.</p>
+                    <a href="#contact" class="text-orange-500 font-bold uppercase text-xs tracking-widest border-b-2 border-orange-500/30 hover:border-orange-500 pb-2 transition-all">Download Service Deck</a>
+                </div>
+                <div class="space-y-0" data-aos="fade-left">
+                    <div class="service-item">
+                        <h3 class="text-xl font-bold mb-2">Institutional Films</h3>
+                        <p class="text-gray-500 text-sm">Cinematic induction and brand story films for colleges and schools.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3 class="text-xl font-bold mb-2">Social Media Mastery</h3>
+                        <p class="text-gray-500 text-sm">Vertical content (Reels/Shorts) designed for high engagement and reach.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3 class="text-xl font-bold mb-2">Event Documentation</h3>
+                        <p class="text-gray-500 text-sm">Capturing the energy of annual days, festivals, and graduations.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3 class="text-xl font-bold mb-2">LMS Content</h3>
+                        <p class="text-gray-500 text-sm">High-quality recorded lectures and educational course production.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO: Case Studies / Evidence -->
+        <section id="portfolio" class="wrapper pb-24 md:pb-48">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-7xl font-extrabold tracking-tighter mb-6">Proven Results.</h2>
+                <p class="text-gray-500 text-lg">Click to watch how we transformed these institution's reach.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <article class="portfolio-card" data-aos="fade-up" onclick="openVideo('uYNthmcD9N4', 'landscape')">
                     <div class="video-thumbnail-landscape">
-                        <img src="https://img.youtube.com/vi/uYNthmcD9N4/hqdefault.jpg" alt="IIIT Agartala" class="thumbnail-img">
-                        <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                        <img src="https://img.youtube.com/vi/uYNthmcD9N4/maxresdefault.jpg" alt="IIIT" class="thumbnail-img">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/20"><div class="play-btn"><i class="fas fa-play"></i></div></div>
                     </div>
-                    <div class="p-10 pt-4">
-                        <div class="flex gap-3 mb-5">
-                            <span class="tag">IIIT Agartala</span>
-                            <span class="tag">Cinematic</span>
-                        </div>
-                        <h3 class="text-3xl font-bold tracking-tight">Campus Culture & Induction</h3>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4"><span class="tag">Flagship Film</span><span class="tag">IIIT</span></div>
+                        <h3 class="text-2xl font-bold mb-2">The National Institute Experience</h3>
+                        <p class="text-gray-500 text-sm">A 5-minute journey through campus culture and academic excellence.</p>
                     </div>
                 </article>
 
-                <!-- NEET Academy -->
-                <article class="portfolio-card premium-tilt" data-aos="fade-up" data-aos-delay="150" onclick="openVideo('KCzF43mRYIQ', 'landscape')">
-                    <div class="card-glow"></div>
+                <article class="portfolio-card" data-aos="fade-up" data-aos-delay="100" onclick="openVideo('KCzF43mRYIQ', 'landscape')">
                     <div class="video-thumbnail-landscape">
-                        <img src="https://img.youtube.com/vi/KCzF43mRYIQ/hqdefault.jpg" alt="NEET Academy" class="thumbnail-img">
-                        <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                        <img src="https://img.youtube.com/vi/KCzF43mRYIQ/maxresdefault.jpg" alt="NEET" class="thumbnail-img">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/20"><div class="play-btn"><i class="fas fa-play"></i></div></div>
                     </div>
-                    <div class="p-10 pt-4">
-                        <div class="flex gap-3 mb-5">
-                            <span class="tag">NEET Academy</span>
-                            <span class="tag">Induction</span>
-                        </div>
-                        <h3 class="text-3xl font-bold tracking-tight">Medical Academy Launch Film</h3>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4"><span class="tag">Conversion</span><span class="tag">Academy</span></div>
+                        <h3 class="text-2xl font-bold mb-2">Pulse of NEET Aspirants</h3>
+                        <p class="text-gray-500 text-sm">Targeted promotional film that boosted enrollment by 40%.</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Vertical / Reels Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+                <article class="portfolio-card" data-aos="zoom-in" onclick="openVideo('7qe77K0uvCg', 'vertical')">
+                    <div class="video-thumbnail-vertical">
+                        <img src="https://img.youtube.com/vi/7qe77K0uvCg/hqdefault.jpg" class="thumbnail-img">
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="play-btn !w-12 !h-12"><i class="fas fa-play text-xs"></i></div></div>
+                    </div>
+                </article>
+                <article class="portfolio-card" data-aos="zoom-in" data-aos-delay="100" onclick="openVideo('btLBwnPabyY', 'vertical')">
+                    <div class="video-thumbnail-vertical">
+                        <img src="https://img.youtube.com/vi/btLBwnPabyY/hqdefault.jpg" class="thumbnail-img">
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="play-btn !w-12 !h-12"><i class="fas fa-play text-xs"></i></div></div>
+                    </div>
+                </article>
+                <article class="portfolio-card" data-aos="zoom-in" data-aos-delay="200" onclick="openVideo('XqgYkxA7d0s', 'vertical')">
+                    <div class="video-thumbnail-vertical">
+                        <img src="https://img.youtube.com/vi/XqgYkxA7d0s/hqdefault.jpg" class="thumbnail-img">
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="play-btn !w-12 !h-12"><i class="fas fa-play text-xs"></i></div></div>
+                    </div>
+                </article>
+                <article class="portfolio-card" data-aos="zoom-in" data-aos-delay="300" onclick="openVideo('h1qZi4S8gWY', 'vertical')">
+                    <div class="video-thumbnail-vertical">
+                        <img src="https://img.youtube.com/vi/h1qZi4S8gWY/hqdefault.jpg" class="thumbnail-img">
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="play-btn !w-12 !h-12"><i class="fas fa-play text-xs"></i></div></div>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- Section 02: Agaram Series -->
-        <section class="wrapper mb-32">
-            <div class="section-header mb-12" data-aos="fade-right">
-                <div>
-                    <span class="text-xs font-bold text-gray-500 uppercase tracking-[0.3em] block mb-2">02 — Social Learning</span>
-                    <h2 class="font-extrabold">The Agaram Series</h2>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <!-- Large Vertical Feature -->
-                <div class="md:col-span-4" data-aos="fade-right">
-                    <article class="portfolio-card premium-tilt" onclick="openVideo('7qe77K0uvCg', 'vertical')">
-                        <div class="card-glow"></div>
-                        <div class="video-thumbnail-vertical">
-                            <img src="https://img.youtube.com/vi/7qe77K0uvCg/hqdefault.jpg" alt="Agaram TNPSC" class="thumbnail-img">
-                            <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                        </div>
-                        <div class="p-8 pt-4">
-                            <span class="tag mb-4 inline-block">TNPSC Coaching</span>
-                            <h3 class="text-2xl font-bold">Academy Overview</h3>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Right Side Stack -->
-                <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <article class="portfolio-card premium-tilt" data-aos="fade-up" onclick="openVideo('btLBwnPabyY', 'vertical')">
-                        <div class="card-glow"></div>
-                        <div class="video-thumbnail-vertical">
-                            <img src="https://img.youtube.com/vi/btLBwnPabyY/hqdefault.jpg" alt="Agaram Prep" class="thumbnail-img">
-                            <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                        </div>
-                        <div class="p-8 pt-4">
-                            <span class="tag mb-4 inline-block">Strategy</span>
-                            <h3 class="text-xl font-bold">Strategic Prep Module</h3>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-card premium-tilt" data-aos="fade-up" data-aos-delay="150" onclick="openVideo('XqgYkxA7d0s', 'vertical')">
-                        <div class="card-glow"></div>
-                        <div class="video-thumbnail-vertical">
-                            <img src="https://img.youtube.com/vi/XqgYkxA7d0s/hqdefault.jpg" alt="Test Series" class="thumbnail-img">
-                            <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                        </div>
-                        <div class="p-8 pt-4">
-                            <span class="tag mb-4 inline-block">Evaluation</span>
-                            <h3 class="text-xl font-bold">Comprehensive Assessment</h3>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 03: Campus Life -->
-        <section class="wrapper mb-32">
-            <div class="section-header mb-12" data-aos="fade-right">
-                <div>
-                    <span class="text-xs font-bold text-gray-500 uppercase tracking-[0.3em] block mb-2">03 — Campus Atmosphere</span>
-                    <h2 class="font-extrabold">Campus Life</h2>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <article class="portfolio-card premium-tilt" data-aos="zoom-in" onclick="openVideo('h1qZi4S8gWY', 'vertical')">
-                    <div class="card-glow"></div>
-                    <div class="video-thumbnail-vertical">
-                        <img src="https://img.youtube.com/vi/h1qZi4S8gWY/hqdefault.jpg" alt="Culture" class="thumbnail-img">
-                        <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                    </div>
-                    <div class="p-6"><h4 class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Campus Flashback</h4></div>
-                </article>
-
-                <article class="portfolio-card premium-tilt" data-aos="zoom-in" data-aos-delay="100" onclick="openVideo('uWvH3veeWTk', 'vertical')">
-                    <div class="card-glow"></div>
-                    <div class="video-thumbnail-vertical">
-                        <img src="https://img.youtube.com/vi/uWvH3veeWTk/hqdefault.jpg" alt="Vibes" class="thumbnail-img">
-                        <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                    </div>
-                    <div class="p-6"><h4 class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Memorable Vibes</h4></div>
-                </article>
-
-                <article class="portfolio-card premium-tilt" data-aos="zoom-in" data-aos-delay="200" onclick="openVideo('OEcsb3a8rvg', 'vertical')">
-                    <div class="card-glow"></div>
-                    <div class="video-thumbnail-vertical">
-                        <img src="https://img.youtube.com/vi/OEcsb3a8rvg/hqdefault.jpg" alt="Experience" class="thumbnail-img">
-                        <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                    </div>
-                    <div class="p-6"><h4 class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Student Life</h4></div>
-                </article>
-
-                <article class="portfolio-card premium-tilt" data-aos="zoom-in" data-aos-delay="300" onclick="openVideo('VfmGLbAdMPU', 'vertical')">
-                    <div class="card-glow"></div>
-                    <div class="video-thumbnail-vertical">
-                        <img src="https://img.youtube.com/vi/VfmGLbAdMPU/hqdefault.jpg" alt="Corporate" class="thumbnail-img">
-                        <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                    </div>
-                    <div class="p-6"><h4 class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Induction Day</h4></div>
-                </article>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="wrapper mt-40">
-            <div class="relative overflow-hidden rounded-[4rem] bg-[#0A0A0A] border border-white/10 p-16 md:p-32 text-center group">
-                <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-orange-500/5 transition-all duration-1000 group-hover:scale-110"></div>
-                <div class="relative z-10">
-                    <h2 class="text-4xl md:text-8xl font-black mb-10 leading-tight tracking-tighter">Ready to tell your <br><span class="text-orange-500">Academic Story?</span></h2>
-                    <a href="index.html#contact" class="inline-block bg-white text-black px-16 py-6 rounded-full text-[12px] font-black uppercase tracking-widest hover:bg-orange-500 hover:text-white transition-all transform hover:-translate-y-2 active:scale-95 shadow-2xl">Start Your Project</a>
+        <!-- CTA SECTION: Conversion Point -->
+        <section id="contact" class="wrapper py-24 md:py-48 text-center">
+            <div class="bg-gradient-to-b from-orange-500/10 to-transparent border border-white/10 rounded-[3rem] md:rounded-[6rem] p-12 md:p-32">
+                <h2 class="text-4xl md:text-8xl font-black mb-10 tracking-tighter leading-tight">Ready to Win the <br><span class="text-orange-500">Admissions Game?</span></h2>
+                <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto">Schedule a 15-minute consultation to audit your current media strategy and see how we can help.</p>
+                <div class="flex flex-col items-center gap-4">
+                    <a href="mailto:hello@agunmedias.com" class="bg-white text-black px-12 py-6 rounded-full text-xs font-black uppercase tracking-widest hover:bg-orange-500 hover:text-white transition-all transform hover:scale-110">Book My Free Consult</a>
+                    <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Limited Slots for Spring Intake 2026</span>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-20 border-t border-white/5 text-center bg-[#030303]">
-        <img src="Agun media logo.webp" alt="Logo" class="h-10 mx-auto mb-10 opacity-20 grayscale">
-        <p class="text-[10px] text-gray-600 font-bold uppercase tracking-[0.6em]">© 2026 AGUN MEDIAS • ESTABLISHING EXCELLENCE</p>
+    <footer class="py-20 bg-[#020202] border-t border-white/5">
+        <div class="wrapper flex flex-col md:flex-row justify-between items-center gap-10">
+            <img src="Agun media logo.webp" alt="Logo" class="h-10 opacity-30">
+            <div class="flex gap-10">
+                <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors"><i class="fab fa-linkedin-in text-xl"></i></a>
+                <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+            </div>
+            <p class="text-[9px] text-gray-700 font-bold uppercase tracking-[0.5em]">© 2026 AGUN MEDIAS • THE EDUCATIONAL STANDARD</p>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: true, easing: 'ease-out-quart' });
+        AOS.init({ duration: 1200, once: true });
 
-        // PREMIUM TILT & GLOW LOGIC
-        const cards = document.querySelectorAll('.premium-tilt');
-        
-        cards.forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                // Update glow position
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
-                
-                // Calculate Tilt
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 25;
-                const rotateY = (centerX - x) / 25;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-            });
-        });
-
-        function openVideo(videoId, type) {
+        function openVideo(videoId, orientation) {
             const modal = document.getElementById('videoModal');
             const wrapper = document.getElementById('modalWrapper');
             const iframe = document.getElementById('modalIframe');
             
-            const cleanId = videoId.split('?')[0].split('/').pop();
-            iframe.src = `https://www.youtube.com/embed/${cleanId}?autoplay=1&modestbranding=1&rel=0&iv_load_policy=3`;
-            
-            wrapper.className = type === 'vertical' ? 'modal-inner modal-content-vertical' : 'modal-inner modal-content-landscape';
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`;
+            wrapper.className = orientation === 'vertical' ? 'modal-inner vertical' : 'modal-inner';
             
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
 
         function closeVideo() {
-            const modal = document.getElementById('videoModal');
+            document.getElementById('videoModal').style.display = 'none';
             document.getElementById('modalIframe').src = "";
-            modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('videoModal')) closeVideo();
-        }
+        window.onclick = e => { if (e.target == document.getElementById('videoModal')) closeVideo(); }
     </script>
 </body>
 </html>
