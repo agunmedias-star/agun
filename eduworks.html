@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educational Media Production | Agun Medias</title>
     
-    <!-- Branding Consistency -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="Agun media logo.webp">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -28,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* Dynamic Background Elements */
         .bg-noise {
             position: fixed;
             inset: 0;
@@ -72,19 +73,6 @@
             z-index: 2;
         }
 
-        /* Hero CTA Pulse */
-        .cta-pulse {
-            box-shadow: 0 0 0 0 rgba(242, 101, 34, 0.4);
-            animation: pulse-orange 2s infinite;
-        }
-
-        @keyframes pulse-orange {
-            0% { box-shadow: 0 0 0 0 rgba(242, 101, 34, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(242, 101, 34, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(242, 101, 34, 0); }
-        }
-
-        /* Premium Portfolio Cards */
         .portfolio-card {
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -94,26 +82,25 @@
             position: relative;
             cursor: pointer;
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
-
-        @media (min-width: 768px) { .portfolio-card { border-radius: 2.5rem; } }
 
         .portfolio-card:hover {
             border-color: rgba(242, 101, 34, 0.5);
             background: rgba(255, 255, 255, 0.07);
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+            transform: translateY(-8px);
         }
 
-        .video-thumbnail-landscape { aspect-ratio: 16 / 9; position: relative; overflow: hidden; }
-        .video-thumbnail-vertical { aspect-ratio: 9 / 16; position: relative; overflow: hidden; }
+        .video-thumbnail-landscape { aspect-ratio: 16 / 9; position: relative; overflow: hidden; background: #111; }
+        .video-thumbnail-vertical { aspect-ratio: 9 / 16; position: relative; overflow: hidden; background: #111; }
 
         .thumbnail-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 1.2s var(--premium-ease);
-            filter: brightness(0.7);
+            filter: brightness(0.6);
         }
 
         .portfolio-card:hover .thumbnail-img { transform: scale(1.1); filter: brightness(1); }
@@ -127,9 +114,8 @@
             align-items: center;
             justify-content: center;
             color: black;
-            font-size: 1.2rem;
             transition: all 0.4s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .portfolio-card:hover .play-btn { background: var(--ignite-orange); color: white; transform: scale(1.1); }
@@ -152,18 +138,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Services Grid */
-        .service-item {
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            transition: all 0.4s;
-        }
-        .service-item:hover {
-            border-left-color: var(--ignite-orange);
-            background: linear-gradient(to right, rgba(242, 101, 34, 0.05), transparent);
-        }
-
-        /* Modal */
+        /* Modal styling */
         #videoModal {
             display: none;
             position: fixed;
@@ -174,17 +149,35 @@
             justify-content: center;
             backdrop-filter: blur(15px);
         }
-        .modal-inner { background: #000; border-radius: 2rem; overflow: hidden; width: 90%; max-width: 1100px; aspect-ratio: 16/9; }
+        .modal-inner { width: 90%; max-width: 1100px; aspect-ratio: 16/9; position: relative; }
         .modal-inner.vertical { max-width: 400px; aspect-ratio: 9/16; height: 80vh; }
-        iframe { width: 100%; height: 100%; }
+        iframe { width: 100%; height: 100%; border-radius: 1.5rem; }
 
         .close-modal {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: -40px;
+            right: 0;
             cursor: pointer;
             color: white;
             font-size: 2rem;
+        }
+
+        /* Custom Social Section Styles */
+        .instagram-container {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 2rem;
+            padding: 3rem;
+        }
+
+        .wa-btn-pulse {
+            animation: wa-pulse 2s infinite;
+        }
+
+        @keyframes wa-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
     </style>
 </head>
@@ -192,185 +185,238 @@
     <div class="bg-noise"></div>
     <div class="glow-sphere"></div>
 
+    <!-- Video Modal -->
     <div id="videoModal">
-        <span class="close-modal" onclick="closeVideo()">&times;</span>
         <div id="modalWrapper" class="modal-inner">
-            <iframe id="modalIframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <span class="close-modal" onclick="closeVideo()">&times;</span>
+            <iframe id="modalIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </div>
 
     <!-- Navigation -->
     <header class="fixed w-full z-[100] nav-glass">
-        <nav class="wrapper py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center">
-                <img src="Agun media logo.webp" alt="Logo" class="h-10 md:h-12">
-            </a>
-            <a href="#contact" class="bg-white text-black text-[10px] font-black px-6 py-3 rounded-full hover:bg-orange-500 hover:text-white transition-all tracking-widest uppercase cta-pulse">
-                START A PROJECT
-            </a>
+        <nav class="wrapper py-6 flex justify-between items-center">
+            <img src="Agun media logo.webp" alt="Logo" class="h-10">
+            <div class="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-widest">
+                <a href="#portfolio" class="hover:text-orange-500 transition-colors">The Work</a>
+                <a href="#social" class="hover:text-orange-500 transition-colors">Social</a>
+                <a href="#vertical" class="hover:text-orange-500 transition-colors">Verticals</a>
+                <a href="#contact" class="hover:text-orange-500 transition-colors">Contact</a>
+            </div>
+            <a href="https://api.whatsapp.com/send?phone=919786580662&text=I%20checked%20your%20school%20works%20" target="_blank" class="bg-white text-black text-[10px] font-black px-6 py-3 rounded-full hover:bg-orange-500 hover:text-white transition-all">LET'S TALK</a>
         </nav>
     </header>
 
     <main class="relative z-10">
-        <!-- HERO SECTION: Primary Value Proposition -->
-        <section class="wrapper pt-48 md:pt-64 pb-20 md:pb-40">
+        <!-- Hero Section -->
+        <section class="wrapper pt-48 pb-32">
             <div class="max-w-5xl" data-aos="fade-up">
-                <span class="text-orange-500 text-[10px] md:text-xs font-black uppercase tracking-[0.5em] mb-8 block">Content That Converts Students</span>
+                <span class="text-orange-500 text-[10px] font-black uppercase tracking-[0.5em] mb-8 block">Educational Media Experts</span>
                 <h1 class="text-6xl md:text-9xl font-extrabold mb-10 tracking-tighter leading-[0.9]">
                     Stop Being a <br><span class="gradient-text">Boring School.</span>
                 </h1>
                 <p class="text-gray-400 text-lg md:text-2xl max-w-2xl font-medium mb-12 leading-relaxed">
-                    We create high-impact visual media for educational institutions that captures attention, builds trust, and drives admissions.
+                    We create cinematic stories that Gen-Z actually watches. From institutional legacy films to high-engagement reels.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-6">
-                    <a href="#portfolio" class="bg-orange-500 text-white px-10 py-5 rounded-full text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform text-center">View Case Studies</a>
-                    <a href="#trust" class="border border-white/20 text-white px-10 py-5 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white/10 transition-all text-center">Trusted by 12+ Brands</a>
+                <div class="flex gap-4">
+                    <a href="#portfolio" class="bg-orange-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-orange-500 transition-all">VIEW CASE STUDIES</a>
                 </div>
             </div>
         </section>
 
-        <!-- TRUST SECTION: Social Proof -->
-        <section id="trust" class="border-y border-white/5 bg-white/[0.02] py-12">
-            <div class="wrapper">
-                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em] text-center mb-10">Trusted by Premier Educational Brands</p>
-                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-30 grayscale hover:grayscale-0 transition-all">
-                    <span class="text-2xl font-black">IIIT AGARTALA</span>
-                    <span class="text-2xl font-black">AGARAM</span>
-                    <span class="text-2xl font-black">NEET ACADEMY</span>
-                    <span class="text-2xl font-black">JNV</span>
-                    <span class="text-2xl font-black">KV</span>
+        <!-- LANDSCAPE PORTFOLIO -->
+        <section id="portfolio" class="wrapper mb-32">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em]">01 — Featured Productions</span>
+                    <h2 class="text-4xl md:text-6xl font-bold tracking-tight mt-4">Institutional <span class="text-orange-500">Showcases.</span></h2>
                 </div>
             </div>
-        </section>
-
-        <!-- SERVICES: The "How We Help" Section -->
-        <section class="wrapper py-24 md:py-48">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
-                <div data-aos="fade-right">
-                    <span class="text-orange-500 text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Our Expertise</span>
-                    <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-8 leading-tight">We Build Educational <br>Digital Identities.</h2>
-                    <p class="text-gray-500 text-lg mb-10 leading-relaxed">From campus walkthroughs that feel like movies to social media strategies that engage Gen-Z, we handle the entire media stack for your institution.</p>
-                    <a href="#contact" class="text-orange-500 font-bold uppercase text-xs tracking-widest border-b-2 border-orange-500/30 hover:border-orange-500 pb-2 transition-all">Download Service Deck</a>
-                </div>
-                <div class="space-y-0" data-aos="fade-left">
-                    <div class="service-item">
-                        <h3 class="text-xl font-bold mb-2">Institutional Films</h3>
-                        <p class="text-gray-500 text-sm">Cinematic induction and brand story films for colleges and schools.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3 class="text-xl font-bold mb-2">Social Media Mastery</h3>
-                        <p class="text-gray-500 text-sm">Vertical content (Reels/Shorts) designed for high engagement and reach.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3 class="text-xl font-bold mb-2">Event Documentation</h3>
-                        <p class="text-gray-500 text-sm">Capturing the energy of annual days, festivals, and graduations.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3 class="text-xl font-bold mb-2">LMS Content</h3>
-                        <p class="text-gray-500 text-sm">High-quality recorded lectures and educational course production.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PORTFOLIO: Case Studies / Evidence -->
-        <section id="portfolio" class="wrapper pb-24 md:pb-48">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-7xl font-extrabold tracking-tighter mb-6">Proven Results.</h2>
-                <p class="text-gray-500 text-lg">Click to watch how we transformed these institution's reach.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <article class="portfolio-card" data-aos="fade-up" onclick="openVideo('uYNthmcD9N4', 'landscape')">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Video: Academic Story (formerly IIIT Agartala) -->
+                <article class="portfolio-card" data-aos="fade-up" onclick="openVideo('uYNthmcD9N4', 'landscape', 'lWN3squig5YVQXaT')">
                     <div class="video-thumbnail-landscape">
-                        <img src="https://img.youtube.com/vi/uYNthmcD9N4/maxresdefault.jpg" alt="IIIT" class="thumbnail-img">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/20"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                        <img src="https://img.youtube.com/vi/uYNthmcD9N4/hqdefault.jpg" class="thumbnail-img yt-thumb" data-vid="uYNthmcD9N4">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/10"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4"><span class="tag">Academic</span><span class="tag">Story</span></div>
+                        <h3 class="text-2xl font-bold">The Academic Story & Induction</h3>
+                        <p class="text-gray-500 text-sm mt-2">Documenting the rigorous academic journey and welcoming the new cohort of tech leaders.</p>
+                    </div>
+                </article>
+
+                <!-- Video: IIIT National Experience -->
+                <article class="portfolio-card" data-aos="fade-up" data-aos-delay="100" onclick="openVideo('KCzF43mRYIQ', 'landscape')">
+                    <div class="video-thumbnail-landscape">
+                        <img src="https://img.youtube.com/vi/KCzF43mRYIQ/maxresdefault.jpg" class="thumbnail-img yt-thumb" data-vid="KCzF43mRYIQ">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/10"><div class="play-btn"><i class="fas fa-play"></i></div></div>
                     </div>
                     <div class="p-8">
                         <div class="flex gap-2 mb-4"><span class="tag">Flagship Film</span><span class="tag">IIIT</span></div>
-                        <h3 class="text-2xl font-bold mb-2">The National Institute Experience</h3>
-                        <p class="text-gray-500 text-sm">A 5-minute journey through campus culture and academic excellence.</p>
-                    </div>
-                </article>
-
-                <article class="portfolio-card" data-aos="fade-up" data-aos-delay="100" onclick="openVideo('KCzF43mRYIQ', 'landscape')">
-                    <div class="video-thumbnail-landscape">
-                        <img src="https://img.youtube.com/vi/KCzF43mRYIQ/maxresdefault.jpg" alt="NEET" class="thumbnail-img">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/20"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4"><span class="tag">Conversion</span><span class="tag">Academy</span></div>
-                        <h3 class="text-2xl font-bold mb-2">Pulse of NEET Aspirants</h3>
-                        <p class="text-gray-500 text-sm">Targeted promotional film that boosted enrollment by 40%.</p>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Vertical / Reels Grid -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-                <article class="portfolio-card" data-aos="zoom-in" onclick="openVideo('7qe77K0uvCg', 'vertical')">
-                    <div class="video-thumbnail-vertical">
-                        <img src="https://img.youtube.com/vi/7qe77K0uvCg/hqdefault.jpg" class="thumbnail-img">
-                        <div class="absolute inset-0 flex items-center justify-center"><div class="play-btn !w-12 !h-12"><i class="fas fa-play text-xs"></i></div></div>
-                    </div>
-                </article>
-                <article class="portfolio-card" data-aos="zoom-in" data-aos-delay="100" onclick="openVideo('btLBwnPabyY', 'vertical')">
-                    <div class="video-thumbnail-vertical">
-                        <img src="https://img.youtube.com/vi/btLBwnPabyY/hqdefault.jpg" class="thumbnail-img">
-                        <div class="absolute inset-0 flex items-center justify-center"><div class="play-btn !w-12 !h-12"><i class="fas fa-play text-xs"></i></div></div>
-                    </div>
-                </article>
-                <article class="portfolio-card" data-aos="zoom-in" data-aos-delay="200" onclick="openVideo('XqgYkxA7d0s', 'vertical')">
-                    <div class="video-thumbnail-vertical">
-                        <img src="https://img.youtube.com/vi/XqgYkxA7d0s/hqdefault.jpg" class="thumbnail-img">
-                        <div class="absolute inset-0 flex items-center justify-center"><div class="play-btn !w-12 !h-12"><i class="fas fa-play text-xs"></i></div></div>
-                    </div>
-                </article>
-                <article class="portfolio-card" data-aos="zoom-in" data-aos-delay="300" onclick="openVideo('h1qZi4S8gWY', 'vertical')">
-                    <div class="video-thumbnail-vertical">
-                        <img src="https://img.youtube.com/vi/h1qZi4S8gWY/hqdefault.jpg" class="thumbnail-img">
-                        <div class="absolute inset-0 flex items-center justify-center"><div class="play-btn !w-12 !h-12"><i class="fas fa-play text-xs"></i></div></div>
+                        <h3 class="text-2xl font-bold">The National Institute Experience</h3>
+                        <p class="text-gray-500 text-sm mt-2">A 5-minute journey through campus culture and academic excellence.</p>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- CTA SECTION: Conversion Point -->
-        <section id="contact" class="wrapper py-24 md:py-48 text-center">
-            <div class="bg-gradient-to-b from-orange-500/10 to-transparent border border-white/10 rounded-[3rem] md:rounded-[6rem] p-12 md:p-32">
-                <h2 class="text-4xl md:text-8xl font-black mb-10 tracking-tighter leading-tight">Ready to Win the <br><span class="text-orange-500">Admissions Game?</span></h2>
-                <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto">Schedule a 15-minute consultation to audit your current media strategy and see how we can help.</p>
-                <div class="flex flex-col items-center gap-4">
-                    <a href="mailto:hello@agunmedias.com" class="bg-white text-black px-12 py-6 rounded-full text-xs font-black uppercase tracking-widest hover:bg-orange-500 hover:text-white transition-all transform hover:scale-110">Book My Free Consult</a>
-                    <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Limited Slots for Spring Intake 2026</span>
+        <!-- SOCIAL MEDIA STRATEGY SECTION -->
+        <section id="social" class="wrapper mb-32" data-aos="fade-up">
+            <div class="instagram-container">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em]">02 — Digital Presence</span>
+                        <h2 class="text-4xl md:text-6xl font-bold tracking-tight mt-4 mb-8">Social Media <br><span class="text-orange-500">Strategy.</span></h2>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            We don't just post; we build communities. Our comprehensive **Content Production Support** for <span class="text-white font-bold">Vellalar College for Women</span> transforms their digital footprint into a vibrant hub.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <div class="border-l-2 border-orange-500 pl-4">
+                                <div class="text-3xl font-black">200%</div>
+                                <div class="text-[10px] uppercase tracking-widest text-gray-500">Reach Increase</div>
+                            </div>
+                            <div class="border-l-2 border-orange-500 pl-4">
+                                <div class="text-3xl font-black">Daily</div>
+                                <div class="text-[10px] uppercase tracking-widest text-gray-500">Content Production Support</div>
+                            </div>
+                        </div>
+                        <a href="https://www.instagram.com/vellalarcollegeforwomen/" target="_blank" class="inline-flex items-center gap-3 text-orange-500 font-bold hover:gap-5 transition-all">
+                            EXPLORE THE PAGE <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="w-full max-w-[450px] shadow-2xl shadow-orange-500/10 rounded-3xl overflow-hidden">
+                            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/vellalarcollegeforwomen/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style=" background:#000; border:0; margin: 0; padding:0; width:100%;"></blockquote>
+                            <script async src="//platform.instagram.com/en_US/embeds.js"></script>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- VERTICAL SECTION -->
+        <section id="vertical" class="wrapper mb-40">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em]">03 — Short Form</span>
+                    <h2 class="text-4xl md:text-6xl font-bold tracking-tight mt-4">Vertical <span class="text-orange-500">Engagement.</span></h2>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+                <!-- Vertical YT Grid -->
+                <div id="vertical-grid-placeholder" class="contents">
+                    <!-- Cards will be injected here via script -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT / CTA SECTION - SINGLE WHATSAPP BUTTON -->
+        <section id="contact" class="wrapper pb-40" data-aos="fade-up">
+            <div class="bg-gradient-to-br from-orange-600 to-orange-900 rounded-[3rem] p-12 md:p-24 overflow-hidden relative text-center flex flex-col items-center">
+                <div class="relative z-10 max-w-3xl">
+                    <h2 class="text-5xl md:text-7xl font-black mb-8 leading-[0.9]">Ready to <br>Ignite your <br>Admissions?</h2>
+                    <p class="text-white/80 text-xl mb-12">Skip the forms. Talk to us directly on WhatsApp to discuss your institution's digital transformation.</p>
+                    
+                    <a href="https://api.whatsapp.com/send?phone=919786580662&text=I%20checked%20your%20school%20works%20" target="_blank" class="wa-btn-pulse inline-flex items-center gap-4 bg-[#25D366] text-white px-10 py-6 rounded-2xl text-xl font-bold hover:scale-105 transition-transform">
+                        <i class="fab fa-whatsapp text-3xl"></i>
+                        CHAT ON WHATSAPP
+                    </a>
+                </div>
+                <div class="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-[-20deg] translate-x-1/2 pointer-events-none"></div>
             </div>
         </section>
     </main>
 
-    <footer class="py-20 bg-[#020202] border-t border-white/5">
-        <div class="wrapper flex flex-col md:flex-row justify-between items-center gap-10">
-            <img src="Agun media logo.webp" alt="Logo" class="h-10 opacity-30">
-            <div class="flex gap-10">
-                <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
-                <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors"><i class="fab fa-linkedin-in text-xl"></i></a>
-                <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors"><i class="fab fa-youtube text-xl"></i></a>
-            </div>
+    <footer class="py-20 border-t border-white/5 bg-[#020202] relative z-20">
+        <div class="wrapper flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
+            <img src="Agun media logo.webp" alt="Logo" class="h-8 opacity-40">
             <p class="text-[9px] text-gray-700 font-bold uppercase tracking-[0.5em]">© 2026 AGUN MEDIAS • THE EDUCATIONAL STANDARD</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: true });
+        AOS.init({ duration: 1000, once: true });
 
-        function openVideo(videoId, orientation) {
+        // Helper function for thumbnail fallback
+        function handleThumbError(img) {
+            const vid = img.getAttribute('data-vid');
+            if (img.src.includes('maxresdefault')) {
+                img.src = `https://img.youtube.com/vi/${vid}/hqdefault.jpg`;
+            } else if (img.src.includes('hqdefault')) {
+                img.src = `https://img.youtube.com/vi/${vid}/mqdefault.jpg`;
+            } else if (img.src.includes('mqdefault')) {
+                img.src = `https://img.youtube.com/vi/${vid}/0.jpg`;
+            }
+        }
+
+        // Global observer for thumbnail errors
+        document.addEventListener('error', function(e) {
+            if (e.target.classList.contains('yt-thumb')) {
+                handleThumbError(e.target);
+            }
+        }, true);
+
+        // Generate Vertical Grid
+        const grid = document.getElementById('vertical-grid-placeholder');
+        
+        // Videos data
+        const videoData = [
+            { id: '66ryhW-Db20', si: 'YhqTyEDig6rQ03rA' },
+            { id: 'btLBwnPabyY' },
+            { id: '7qe77K0uvCg' },
+            { id: 'h1qZi4S8gWY' },
+            { id: 'uWvH3veeWTk' },
+            { id: 'OEcsb3a8rvg' },
+            { id: 'VfmGLbAdMPU' },
+            { id: 'DdwwBCrPn6w' },
+            { id: 'XqgYkxA7d0s' }
+        ];
+        
+        videoData.forEach((vid, index) => {
+            const card = document.createElement('div');
+            card.className = 'portfolio-card';
+            card.setAttribute('data-aos', 'fade-up');
+            card.setAttribute('data-aos-delay', (index * 50) % 300);
+            card.onclick = () => openVideo(vid.id, 'vertical', vid.si || '');
+            
+            card.innerHTML = `
+                <div class="video-thumbnail-vertical">
+                    <img src="https://img.youtube.com/vi/${vid.id}/hqdefault.jpg" 
+                         class="thumbnail-img yt-thumb" 
+                         data-vid="${vid.id}">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="play-btn !w-12 !h-12"><i class="fas fa-play text-xs"></i></div>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        function openVideo(videoId, orientation, siParam = '') {
             const modal = document.getElementById('videoModal');
             const wrapper = document.getElementById('modalWrapper');
             const iframe = document.getElementById('modalIframe');
             
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`;
-            wrapper.className = orientation === 'vertical' ? 'modal-inner vertical' : 'modal-inner';
+            const baseUrl = 'https://www.youtube.com/embed/';
+            const params = new URLSearchParams({
+                'autoplay': '1',
+                'rel': '0',
+                'modestbranding': '1',
+                'enablejsapi': '1',
+                'origin': window.location.origin,
+                'widget_referrer': window.location.href
+            });
+            
+            if (siParam) {
+                params.append('si', siParam);
+            }
+            
+            iframe.src = `${baseUrl}${videoId}?${params.toString()}`;
+            
+            wrapper.className = (orientation === 'vertical') ? 'modal-inner vertical' : 'modal-inner';
             
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
